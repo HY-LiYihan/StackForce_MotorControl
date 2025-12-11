@@ -152,8 +152,8 @@ class GimbalAimingNode(Node):
         self.target_visible = False
 
         # --- PID 设置 ---
-        self.pid_yaw = PIDController(kp=0.8, ki=0.0, kd=0.01, max_out=0.1) 
-        self.pid_pitch = PIDController(kp=0.8, ki=0.0, kd=0.01, max_out=0.1)
+        self.pid_yaw = PIDController(kp=0.4, ki=0.0, kd=0.005, max_out=0.1) 
+        self.pid_pitch = PIDController(kp=0.4, ki=0.0, kd=0.005, max_out=0.1)
 
         # --- 订阅视觉话题 ---
         self.sub = self.create_subscription(

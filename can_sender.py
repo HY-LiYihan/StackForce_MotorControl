@@ -66,17 +66,17 @@ def main():
         # 1. 初始化阶段 (使能 & 设零)
         # ==========================================
         # --- 设零电机 3 ---
-        print(f"2. 设零电机 ID: {MOTOR_ID_HORIZ} (当前位置设为0)...")
-        zero_cmd = bytes([0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFE])
-        for _ in range(3):
-            send_can_frame(ser, MOTOR_ID_HORIZ, zero_cmd)
-            time.sleep(0.01)
+        # print(f"2. 设零电机 ID: {MOTOR_ID_HORIZ} (当前位置设为0)...")
+        # zero_cmd = bytes([0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFE])
+        # for _ in range(3):
+        #     send_can_frame(ser, MOTOR_ID_HORIZ, zero_cmd)
+        #     time.sleep(0.01)
 
-        # --- 设零电机 4 ---
-        print(f"   设零电机 ID: {MOTOR_ID_VERT} (当前位置设为0)...")
-        for _ in range(3):
-            send_can_frame(ser, MOTOR_ID_VERT, zero_cmd)
-            time.sleep(0.01)
+        # # --- 设零电机 4 ---
+        # print(f"   设零电机 ID: {MOTOR_ID_VERT} (当前位置设为0)...")
+        # for _ in range(3):
+        #     send_can_frame(ser, MOTOR_ID_VERT, zero_cmd)
+        #     time.sleep(0.01)
         
         # --- 使能电机 3 ---
         print(f"1. 使能电机 ID: {MOTOR_ID_HORIZ}...")
@@ -133,7 +133,7 @@ def main():
             mit_payload_v = create_mit_command(
                 pos = target_pos_v, 
                 vel = 0.0, 
-                kp  = 1.0,  # 垂直轴稍微硬一点
+                kp  = 5.0,  # 垂直轴稍微硬一点
                 kd  = 0.1, 
                 tor = 0.0
             )
